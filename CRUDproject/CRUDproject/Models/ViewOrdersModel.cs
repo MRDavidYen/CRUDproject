@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CRUDproject.Repository;
+using CRUDproject.ViewModels;
 
 namespace CRUDproject.Models
 {
 
-    public class ViewOrdersModel
+    public static class ViewOrdersModel
     {
-        public int OrderID { get; set; }
-        public DateTime OrderDate { get; set; }
-        public DateTime RequiredDate { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerContractName { get; set; }
-        public string EmployeeName { get; set; }
-    }
-    public class ViewOrdersFun
-    {
-        public void GetOrdersView(string StartDate, string EndDate)
+        public static List<OrdersList> GetOrdersView(string StartDate, string EndDate)
         {
-            
+            List<OrdersList> ReturnData = new List<OrdersList>();
+            ReturnData = ViewOrdersRepository.GetList(StartDate,EndDate);
+            return ReturnData;
         }
     }
 }

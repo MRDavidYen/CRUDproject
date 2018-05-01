@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using Dapper;
+using CRUDproject.ViewModels;
 using CRUDproject.Models;
 
 namespace CRUDproject.Repository
 {
     public static class ViewOrdersRepository
     {
-        public static List<ViewOrdersModel> GetList(string StartDate,string EndDate)
+        public static List<OrdersList> GetList(string StartDate,string EndDate)
         {
             DynamicParameters Param = new DynamicParameters();
             Param.Add("@StartDate", StartDate);
@@ -26,7 +27,7 @@ namespace CRUDproject.Repository
             using (SqlConnection conn = new SqlConnection(settings.DBConn.Northwind.ConnectionString))
             {
                 conn.Open();
-                return conn.Query<ViewOrdersModel>(CommandString, Param).ToList();
+                return conn.Query<OrdersList>(CommandString, Param).ToList();
             }
 
         }
