@@ -1,6 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryUI")
+    @Styles.Render("~/bundles/JqueryUIcss")
+    @RenderSection("scripts", required: false)
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +29,7 @@
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
                     <li>@Html.ActionLink("關於", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("訂單資料","ViewOrders","ViewOrders")</li>
+                    <li>@Html.ActionLink("訂單資料","ViewOrder","ViewOrders")</li>
                 </ul>
             </div>
         </div>
@@ -37,8 +42,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>

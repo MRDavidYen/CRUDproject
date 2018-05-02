@@ -18,7 +18,7 @@ namespace CRUDproject.Repository
             Param.Add("@EndDate", EndDate);
 
             string CommandString = @"
-            select Orders.OrderID,OrderDate,RequiredDate,Customers.CompanyName CustomerName,Customers.ContactName CustomerContractName,Employees.FirstName  + ' '+ Employees.LastName as EmployeesName from Customers
+            select Orders.OrderID,OrderDate,RequiredDate,Customers.CompanyName CustomerName,Customers.ContactName CustomerContractName,Employees.FirstName  + ' '+ Employees.LastName as EmployeeName from Customers
             left join Orders on Orders.CustomerID = Customers.CustomerID
             join Employees on Employees.EmployeeID = Orders.EmployeeID
             WHERE OrderDate between @StartDate and @EndDate   

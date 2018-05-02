@@ -14,6 +14,10 @@ namespace CRUDproject
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryUI").Include(
+            "~/Scripts/jquery-ui-{version}.js"));
+            bundles.Add(new StyleBundle("~/bundles/JqueryUIcss").Include(
+            "~/Content/themes/base/jquery-ui.css"));
             // 使用開發版本的 Modernizr 進行開發並學習。然後，當您
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

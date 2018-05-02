@@ -7,6 +7,8 @@ namespace CRUDproject.ViewModels
 {
     public class ViewOrdersViewModel
     {
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public List<OrdersList> OrderList { get; set; }
     }
     public class OrdersList

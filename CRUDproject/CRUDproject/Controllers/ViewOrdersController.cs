@@ -16,17 +16,24 @@ namespace CRUDproject.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult ViewOrder()
+        public ActionResult ViewOrder(string StartDate,string EndDate)
         {
             ViewOrdersViewModel model = new ViewOrdersViewModel();
-            model.OrderList = ViewOrdersModel.GetOrdersView("19960101", "19970101");
+            if(!string.IsNullOrEmpty(StartDate) && !string.IsNullOrEmpty(EndDate))
+            {
+                model.OrderList = ViewOrdersModel.GetOrdersView(StartDate,EndDate);
+            }
+            if(model.OrderList !=null && model.OrderList.Any())
+            {
+                return View(model);
+            }
             return View(model);
         }
         [HttpPost]
-        public ActionResult ViewOrdersPost()
+        public ActionResult ViewOrder(ViewOrdersViewModel view)
         {
-
-            return View();
+            view.OrderList = ViewOrdersModel.GetOrdersView(view.StartDate, view.EndDate);
+            return View(view);
         }
     }
 }

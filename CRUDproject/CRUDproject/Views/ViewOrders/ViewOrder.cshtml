@@ -9,10 +9,56 @@
 </head>
 <body>
     <div>
-        @using (Html.BeginForm("ViewOrder","ViewOrders",FormMethod.Post))
+        @using (Html.BeginForm("ViewOrder", "ViewOrders", FormMethod.Post))
         {
+            <table id="SearchWhere" style="border:none;">
+                <tr>
+                    <td style="border:none;">
+                        <label for="StartDate">訂單起始日</label>
+                        <input type="text" class="form-control" id="StartDate" name="StartDate" value="@Model.StartDate"/>
+                        <label for="EndDate">訂單結束日</label>
+                        <input type="text" class="form-control" id="EndDate" name="EndDate" value="@Model.EndDate" />
+                        <input class="btn btn-primary" type="submit" id="SearchOrders" value="查詢" />
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>訂單編號</th>
+                        <th>客戶名稱</th>
+                        <th>客戶聯絡人名稱</th>
+                        <th>業務名稱</th>
+                        <th>訂單日期</th>
+                        <th>需求日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.OrderList != null && Model.OrderList.Any())
+                    {
+                        foreach (var item in Model.OrderList)
+                        {
+                            <tr>
+                                <td>@item.OrderID</td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.CustomerContractName</td>
+                                <td>@item.EmployeeName</td>
+                                <td>@item.OrderDate.ToString("yyyyMMdd")</td>
+                                <td>@item.RequiredDate.ToString("yyyyMMdd")</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5">查無資料</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
         }
     </div>
+    @Scripts.Render("~/Scripts/InsideUsed/ViewOrders.js")
 </body>
 </html>
