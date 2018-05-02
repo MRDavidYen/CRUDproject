@@ -19,4 +19,18 @@ $(function () {
             return false;
         }
     });
+    $('.DeleteItem').on("click", function () {
+        var Item = $(this);
+        var OrderID = $(this).next().next().val();
+        $.ajax({
+            url: "/DeleteOrder/DeleteItem",
+            method: "POST",
+            data: { OrderID: OrderID },
+            success: function (result) {
+                if (result) {
+                    Item.parent().parent().slideUp();
+                }
+            }
+        });
+    });
 });

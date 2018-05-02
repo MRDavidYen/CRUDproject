@@ -31,6 +31,7 @@
                         <th>業務名稱</th>
                         <th>訂單日期</th>
                         <th>需求日期</th>
+                        <th>處理方式</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,13 +46,22 @@
                                 <td>@item.EmployeeName</td>
                                 <td>@item.OrderDate.ToString("yyyyMMdd")</td>
                                 <td>@item.RequiredDate.ToString("yyyyMMdd")</td>
+                                <td>
+                                    <a href="#" class="DeleteItem">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </a>
+                                    <a href="#" class="EditItem">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                    <input type="hidden" id="OrderID" value="@item.OrderID"/>
+                                </td>
                             </tr>
                         }
                     }
                     else
                     {
                         <tr>
-                            <td colspan="5">查無資料</td>
+                            <td colspan="7" style="text-align:center;">查無資料</td>
                         </tr>
                     }
                 </tbody>
