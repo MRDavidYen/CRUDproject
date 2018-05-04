@@ -19,5 +19,15 @@ namespace CRUDproject.Models
                 throw ex;
             }
         }
+        public static int UpdateOrderData(UpdateViewModel Model)
+        {
+            try
+            {
+                return UpdateRepository.UpdateData(Model);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

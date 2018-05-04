@@ -17,7 +17,7 @@ namespace CRUDproject.Repository
             Param.Add("OrderID", OrderID);
 
             string CommandString = @"
-            select Orders.OrderID,OrderDate,RequiredDate,Customers.CompanyName CustomerName,Customers.ContactName CustomerContractName from Customers
+            select Orders.OrderID,OrderDate OrderDays,RequiredDate RequiredDays,Customers.CompanyName CustomerName,Customers.CustomerID,Customers.ContactName CustomerContractName from Customers
             left join Orders on Orders.CustomerID = Customers.CustomerID
             WHERE Orders.OrderID = @OrderID";
 
@@ -39,7 +39,7 @@ namespace CRUDproject.Repository
 
             string CommandString = @"
             UPDATE Orders SET OrderDate = @OrderDate,RequiredDate = @RequestDate WHERE OrderID = @OrderID
-            UPDATE Customer SET CompanyName = @CustomerName,ContactName = @CustomerContractName WHERE CustomerID = @CustomerID";
+            UPDATE Customers SET CompanyName = @CustomerName,ContactName = @CustomerContractName WHERE CustomerID = @CustomerID";
 
             using (SqlConnection conn = new SqlConnection(settings.DBConn.Northwind.ConnectionString))
             {

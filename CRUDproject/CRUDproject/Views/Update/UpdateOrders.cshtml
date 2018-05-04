@@ -15,11 +15,11 @@
             <tr>
                 <td style="border:none;">
                     <label for="OrderID">訂單編號</label>
-                    <input type="text" class="form-control" id="OrderID" disabled="disabled" name="OrderID" value="@Model.OrderID" />
+                    <input type="text" class="form-control" id="OrderID" name="OrderID" value="@Model.OrderID" />
                     <label for="OrderDate">訂單日期</label>
-                    <input type="text" class="form-control" id="OrderDate" name="OrderDate" value="@Model.OrderDate.ToString("yyyyMMdd")" />
+                    <input type="text" class="form-control" id="OrderDate" name="OrderDate" value="@Model.OrderDays.ToString("yyyyMMdd")" />
                     <label for="RequiredDate">需求日期</label>
-                    <input type="text" class="form-control" id="RequiredDate" name="RequiredDate" value="@Model.RequiredDate.ToString("yyyyMMdd")" />
+                    <input type="text" class="form-control" id="RequiredDate" name="RequiredDate" value="@Model.RequiredDays.ToString("yyyyMMdd")" />
                     <label for="CustomerName">公司名稱</label>
                     <input type="text" class="form-control" id="CustomerName" name="CustomerName" value="@Model.CustomerName" />
                     <label for="CustomerContractName">公司聯絡人名稱</label>
@@ -31,5 +31,22 @@
         </table>
         }
     </div>
+    <script>
+        $(function () {
+            $('#OrderDate').datepicker({
+                dateFormat: 'yymmdd',
+                changeYear: true,
+                changeMonth: true,
+                defaultDate: new Date("1996-01-01"),
+            });
+            $('#RequiredDate').datepicker({
+                dateFormat: 'yymmdd',
+                changeYear: true,
+                changeMonth: true,
+                defaultDate: new Date("1997-01-01"),
+
+            });
+        });
+    </script>
 </body>
 </html>

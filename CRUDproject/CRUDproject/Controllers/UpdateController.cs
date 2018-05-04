@@ -19,5 +19,15 @@ namespace CRUDproject.Controllers
 
             return View(view);
         }
+        [HttpPost]
+        public ActionResult UpdateOrders(UpdateViewModel Model)
+        {
+            int Result = UpdateModels.UpdateOrderData(Model);
+            if(Result > 0)
+            {
+                return RedirectToAction("ViewOrder","ViewOrders");
+            }
+            return View(Model);
+        }
     }
 }

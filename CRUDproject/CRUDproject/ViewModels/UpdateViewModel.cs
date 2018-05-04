@@ -11,8 +11,10 @@ namespace CRUDproject.ViewModels
         public string CustomerID { get; set; }
         public string CustomerName { get; set; }
         public string CustomerContractName { get; set; }
-        public DateTime OrderDate { get; set; }
-        public DateTime RequiredDate { get; set; }
+        public string OrderDate { get; set; }
+        public string RequiredDate { get; set; }
+        public DateTime OrderDays { get; set;}
+        public DateTime RequiredDays { get; set; }
         
     }
 }
