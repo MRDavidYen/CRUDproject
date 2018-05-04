@@ -1,0 +1,35 @@
+﻿@model CRUDproject.ViewModels.UpdateViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("UpdateOrders", "Update", FormMethod.Post))
+        {
+        <table id="SearchWhere" style="border:none;">
+            <tr>
+                <td style="border:none;">
+                    <label for="OrderID">訂單編號</label>
+                    <input type="text" class="form-control" id="OrderID" disabled="disabled" name="OrderID" value="@Model.OrderID" />
+                    <label for="OrderDate">訂單日期</label>
+                    <input type="text" class="form-control" id="OrderDate" name="OrderDate" value="@Model.OrderDate.ToString("yyyyMMdd")" />
+                    <label for="RequiredDate">需求日期</label>
+                    <input type="text" class="form-control" id="RequiredDate" name="RequiredDate" value="@Model.RequiredDate.ToString("yyyyMMdd")" />
+                    <label for="CustomerName">公司名稱</label>
+                    <input type="text" class="form-control" id="CustomerName" name="CustomerName" value="@Model.CustomerName" />
+                    <label for="CustomerContractName">公司聯絡人名稱</label>
+                    <input type="text" class="form-control" id="CustomerContractName" name="CustomerContractName" value="@Model.CustomerContractName" />
+                    <input type="hidden" id="CustomerID" name="CustomerID" value="@Model.CustomerID"/>
+                    <input class="btn btn-primary" type="submit" id="UpdateOrders" value="修改" />
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+</body>
+</html>

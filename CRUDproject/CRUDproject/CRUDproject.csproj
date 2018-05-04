@@ -146,6 +146,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DeleteOrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Controllers\ViewOrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -153,10 +154,13 @@
     <Compile Include="Models\DeleteOrderModel.cs" />
     <Compile Include="Models\InsertModel.cs" />
     <Compile Include="Models\settings.cs" />
+    <Compile Include="Models\UpdateModel.cs" />
     <Compile Include="Models\ViewOrdersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DeleteOrderRepository.cs" />
+    <Compile Include="Repository\UpdateRepository.cs" />
     <Compile Include="Repository\ViewOrdersRepository.cs" />
+    <Compile Include="ViewModels\UpdateViewModel.cs" />
     <Compile Include="ViewModels\ViewOrdersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +247,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ViewOrders\ViewOrder.cshtml" />
+    <Content Include="Views\Update\UpdateOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
